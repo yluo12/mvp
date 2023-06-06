@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import { NextUIProvider } from '@nextui-org/react';
 import NavBar from './components/NavBar.jsx';
-import SearchSchool from './components/SearchSchool.jsx';
-import AddSchool from './components/AddSchool.jsx';
-import SchoolList from './components/SchoolList.jsx';
-import SchoolMap from './components/SchoolMap.jsx';
+// import SearchSchool from './components/SearchSchool.jsx';
+import AddSchoolForm from './components/AddSchool.jsx';
+// import SchoolList from './components/SchoolList.jsx';
+// import SchoolMap from './components/SchoolMap.jsx';
 
 function App () {
   const [schools, setSchools] = React.useState([]);
@@ -24,17 +25,17 @@ function App () {
   }, []);
 
   return (
-    <div>
+    <NextUIProvider>
       <NavBar />
       <section className="schoolList">
-        <SearchSchool />
-        <AddSchool />
-        <SchoolList />
+        {/* <SearchSchool /> */}
+        <AddSchoolForm />
+        {/* <SchoolList /> */}
       </section>
       <section className="map">
-        <SchoolMap />
+        {/* <SchoolMap /> */}
       </section>
-    </div>
+    </NextUIProvider>
   );
 }
 
