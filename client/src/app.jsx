@@ -1,5 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import NavBar from './components/NavBar.jsx';
+import SearchSchool from './components/SearchSchool.jsx';
+import AddSchool from './components/AddSchool.jsx';
+import SchoolList from './components/SchoolList.jsx';
+import SchoolMap from './components/SchoolMap.jsx';
 
 function App () {
   const [schools, setSchools] = React.useState([]);
@@ -17,16 +22,17 @@ function App () {
         throw new Error(err, 'Failed to get school list');
       });
   }, []);
+
   return (
     <div>
-      <navBar />
+      <NavBar />
       <section className="schoolList">
-        <searchSchool />
-        <addSchool />
-        <schoolList />
+        <SearchSchool />
+        <AddSchool />
+        <SchoolList />
       </section>
       <section className="map">
-        <schoolMap />
+        <SchoolMap />
       </section>
     </div>
   );
