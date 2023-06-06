@@ -5,13 +5,17 @@ const DB_NAME = process.env.DB_NAME;
 
 mongoose.connect(`mongodb://${DB_HOST}/${DB_NAME}`, { useNewUrlParser: true, useUnifiedTopology: true });
 
-let repoSchema = mongoose.Schema({
-  userId: Number,
-  username: String,
-  repoId: Number,
-  repoName: String,
-  url: String,
-  forkCount: Number
+let listSchema = mongoose.Schema({
+  schoolName: String,
+  tags: Array,
+  description: String,
+  location: String,
+  rating: Number,
+  reviews: Array,
+  like: Boolean,
+  tour: Boolean
 });
 
-let Repo = mongoose.model('Repo', repoSchema);
+let List = mongoose.model('List', listSchema);
+
+module.exports = List;

@@ -11,6 +11,6 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/', router);
 
-app.listen(port, function() {
+app.listen(PORT, function() {
   console.log(`listening at http://localhost:${PORT}`);
 });
