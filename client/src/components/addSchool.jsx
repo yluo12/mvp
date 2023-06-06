@@ -22,7 +22,7 @@ function AddSchoolForm () {
       data: formJson
     })
       .then(() => {
-
+        console.log('school saved to db');
       })
       .catch((err) => {
         throw new Error(err, 'Failed to save school information');

@@ -4,11 +4,12 @@ import { NextUIProvider } from '@nextui-org/react';
 import NavBar from './components/NavBar.jsx';
 // import SearchSchool from './components/SearchSchool.jsx';
 import AddSchoolForm from './components/AddSchool.jsx';
-// import SchoolList from './components/SchoolList.jsx';
+import SchoolList from './components/SchoolList.jsx';
 // import SchoolMap from './components/SchoolMap.jsx';
 
 function App () {
   const [schools, setSchools] = React.useState([]);
+  const [currentList, setCurrentList] = React.useState([]);
 
   React.useEffect(() => {
     axios({
@@ -18,6 +19,7 @@ function App () {
       .then((res) => {
         console.log(res.data, 'this is school list from app.jsx');
         setSchools(res.data);
+        setCurrentList(res.data);
       })
       .catch((err) => {
         throw new Error(err, 'Failed to get school list');
@@ -30,7 +32,7 @@ function App () {
       <section className="schoolList">
         {/* <SearchSchool /> */}
         <AddSchoolForm />
-        <SchoolList />
+        <SchoolList currentList={currentList}/>
       </section>
       <section className="map">
         {/* <SchoolMap /> */}
