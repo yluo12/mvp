@@ -16,8 +16,8 @@ function App () {
       method: 'get'
     })
       .then((res) => {
-        console.log(res, 'this is school list from app.jsx');
-        setSchools(res);
+        console.log(res.data, 'this is school list from app.jsx');
+        setSchools(res.data);
       })
       .catch((err) => {
         throw new Error(err, 'Failed to get school list');
@@ -30,7 +30,7 @@ function App () {
       <section className="schoolList">
         {/* <SearchSchool /> */}
         <AddSchoolForm />
-        {/* <SchoolList /> */}
+        <SchoolList />
       </section>
       <section className="map">
         {/* <SchoolMap /> */}

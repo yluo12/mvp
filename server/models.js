@@ -8,7 +8,9 @@ const saveSchoolToDB = (info) => {
     rating: Number(info.rating),
     description: info.description,
     address: info.address + info.city + info.state,
-    review: [info.review]
+    reviews: [info.review],
+    like: info.like,
+    tour: info.tour
   };
   console.log(condition, 'condition from models')
   console.log(update, 'update from models')
@@ -16,7 +18,7 @@ const saveSchoolToDB = (info) => {
 };
 
 const getAllSchoolsFromDB = () => {
-
+  return List.find({});
 };
 
 const updateSchoolfromDB = () => {
