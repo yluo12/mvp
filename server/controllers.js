@@ -1,19 +1,16 @@
-const {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, toggleLikefromDB, toggleTourfromDB} = require('./models.js');
+const {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, deleteSchoolFromDB, toggleLikefromDB, toggleTourfromDB} = require('./models.js');
 
 const addSchool = (req, res) => {
-  // console.log(req.body);
   saveSchoolToDB(req.body)
     .then((dbRes) => {
       res.status(201).send();
     })
     .catch((err) => {
-      // console.log(err, 'cannot save data to db')
       res.sendStatus(404);
     });
 };
 
 const getAllSchools = (req, res) => {
-  // console.log(req.param);
   getAllSchoolsFromDB()
     .then((dbRes) => {
       console.log(dbRes);
@@ -25,11 +22,19 @@ const getAllSchools = (req, res) => {
 };
 
 const updateSchool = (req, res) => {
-  console.log(req.body);
   updateSchoolfromDB(req.body)
     .then((dbRes) => {
-      console.log(dbRes.data);
       res.status(201).send();
+    })
+    .catch((err) => {
+      res.sendStatus(404);
+    });
+};
+
+const deleteSchool = (req, res) => {
+  deleteSchoolFromDB()
+    .then((dbRes) => {
+      res.sendStatus(200);
     })
     .catch((err) => {
       res.sendStatus(404);
@@ -39,7 +44,6 @@ const updateSchool = (req, res) => {
 const updateLike = (req, res) => {
   toggleLikefromDB(req.body)
     .then((dbRes) => {
-      console.log(dbRes);
       res.status(200).send(dbRes.like);
     })
     .catch((err) => {
@@ -57,4 +61,4 @@ const updateTour = (req, res) => {
     });
 };
 
-module.exports = {addSchool, getAllSchools, updateSchool, updateLike, updateTour};
+module.exports = {addSchool, getAllSchools, updateSchool, deleteSchool, updateLike, updateTour};

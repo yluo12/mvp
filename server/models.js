@@ -13,8 +13,6 @@ const saveSchoolToDB = (info) => {
     tour: info.tour,
     coords: info.coords
   };
-  // console.log(condition, 'condition from models')
-  // console.log(update, 'update from models')
   return List.findOneAndUpdate(condition, update, {upsert: true}).exec();
 };
 
@@ -26,13 +24,17 @@ const updateSchoolfromDB = () => {
 
 };
 
+const deleteSchoolFromDB = (info) => {
+  return List.deleteOne(info).exec();
+};
+
 const toggleLikefromDB = async (info) => {
   const condition = {name: info.name, zipCode: info.zipCode};
   const update = {};
   if (info.like !== true) {
     update.like = true;
   } else {
-     update.like = false;
+    update.like = false;
   }
   return List.findOneAndUpdate(condition, update, {new: true}).exec();
 };
@@ -43,9 +45,9 @@ const toggleTourfromDB = async (info) => {
   if (info.tour !== true) {
     update.tour = true;
   } else {
-     update.tour = false;
+    update.tour = false;
   }
   return List.findOneAndUpdate(condition, update, {new: true}).exec();
 };
 
-module.exports = {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, toggleLikefromDB, toggleTourfromDB};
+module.exports = {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, deleteSchoolFromDB, toggleLikefromDB, toggleTourfromDB};
