@@ -36,7 +36,7 @@ function App () {
       <section className="schoolList">
         <SearchSchool schools={schools} setCurrentList={setCurrentList}/>
         <AddSchoolForm fetchSchools={fetchSchools} />
-        <SchoolList currentList={currentList}/>
+        <SchoolList currentList={currentList} fetchSchools={fetchSchools}/>
       </section>
       <section>
         <SchoolMap currentList={currentList}/>

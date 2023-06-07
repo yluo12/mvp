@@ -1,4 +1,4 @@
-const {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, toggleLikefromDB} = require('./models.js');
+const {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, toggleLikefromDB, toggleTourfromDB} = require('./models.js');
 
 const addSchool = (req, res) => {
   // console.log(req.body);
@@ -37,15 +37,24 @@ const updateSchool = (req, res) => {
 };
 
 const updateLike = (req, res) => {
-  console.log(req.body);
   toggleLikefromDB(req.body)
     .then((dbRes) => {
-      console.log(dbRes.data);
-      res.status(200).send();
+      console.log(dbRes);
+      res.status(200).send(dbRes.like);
     })
     .catch((err) => {
       res.sendStatus(404);
     });
 };
 
-module.exports = {addSchool, getAllSchools, updateSchool, updateLike};
+const updateTour = (req, res) => {
+  toggleTourfromDB(req.body)
+    .then((dbRes) => {
+      res.status(200).send(dbRes.tour);
+    })
+    .catch((err) => {
+      res.sendStatus(404);
+    });
+};
+
+module.exports = {addSchool, getAllSchools, updateSchool, updateLike, updateTour};
