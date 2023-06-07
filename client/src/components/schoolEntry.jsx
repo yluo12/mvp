@@ -4,6 +4,13 @@ import { HeartIcon, UsersIcon, MapPinIcon, ChatBubbleBottomCenterTextIcon } from
 function SchoolEntry ({school}) {
   const location = `${school.address.split(',')[1]}, ${school.address.split(',')[2]}`;
   // const [location, setLocation] = React.useState();
+  const likeHandler = () => {
+    axios({
+      url: '/schools',
+      method: 'PATCH',
+      data: {'name': school.name, 'zipCode': school.zipCode}
+  })
+  };
   return (
     <div>
       <p>{school.name}</p>
@@ -13,7 +20,7 @@ function SchoolEntry ({school}) {
         <li>{school.description}</li>
       </ul>
       <ul className="icon-list">
-        <li><HeartIcon className="icon icon-like" />like</li>
+        <li onClick={likeHandler}><HeartIcon className="icon icon-like" />like</li>
         <li><UsersIcon className="icon icon-tour" />tour</li>
         <li><ChatBubbleBottomCenterTextIcon className="icon icon-tour" /><a>Reviews</a></li>
       </ul>

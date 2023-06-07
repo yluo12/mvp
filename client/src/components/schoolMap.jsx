@@ -24,10 +24,10 @@ function SchoolMap({currentList}) {
   }, [currentPosition]);
 
   return (
-    <MapContainer className="map" center={[currentPosition.lat, currentPosition.lg]} zoom={13} scrollWheelZoom={false}>
+    <MapContainer className="map" center={[currentPosition.lat, currentPosition.lg]} zoom={13} scrollWheelZoom={true}>
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
       />
       <Marker position={[currentPosition.lat, currentPosition.lg]}>
         <Popup>
@@ -40,3 +40,6 @@ function SchoolMap({currentList}) {
 }
 
 export default SchoolMap;
+
+// attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+// url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"

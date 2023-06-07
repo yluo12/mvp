@@ -23,7 +23,8 @@ let listSchema = mongoose.Schema({
   like: Boolean,
   tour: Boolean,
   address: String,
-  zipCode: Number
+  zipCode: Number,
+  coords: Array
 });
 
 let List = mongoose.model('List', listSchema);
