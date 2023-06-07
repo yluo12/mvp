@@ -10,7 +10,9 @@ function SearchSchool ({schools, setCurrentList}) {
   const search = (e) => {
     const searchedList = [];
     schools.forEach((school) => {
-      if (school.name.indexOf(term) > -1) {
+      const nameLowerCase = school.name.toLowerCase();
+      const termLowerCase = term.toLowerCase();
+      if (nameLowerCase.indexOf(termLowerCase) > -1) {
        searchedList.push(school);
       }
     });

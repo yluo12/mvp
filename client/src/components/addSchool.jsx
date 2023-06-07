@@ -11,24 +11,33 @@ function AddSchoolForm ({fetchSchools}) {
     console.log("closed");
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
-    axios({
-      url: '/schools',
-      method: 'POST',
-      data: formJson
-    })
-      .then(() => {
+    // console.log(formJson);
+    try {
+      const res = await axios({
+          url: 'http://nominatim.openstreetmap.org/search',
+          method: 'GET',
+          params: {'format': 'json', 'q': formJson.address}
+      });
+      const updatedData = {...formJson, coords: [Number(res.data[0].lat), Number(res.data[0].lon)]};
+      try {
+        const res = await axios({
+          url: '/schools',
+          method: 'POST',
+          data: updatedData
+        });
         console.log('school saved to db');
         fetchSchools();
-      })
-      .catch((err) => {
-        throw new Error(err, 'Failed to save school information');
-      });
-      setVisible(false);
+      } catch (err) {
+        console.log('Failed to save school information');
+      }
+    } catch (err) {
+      console.log('Failed to get coordinate information');
+    };
+    setVisible(false);
   };
 
   return (
