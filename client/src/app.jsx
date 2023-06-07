@@ -2,16 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import { NextUIProvider } from '@nextui-org/react';
 import NavBar from './components/NavBar.jsx';
-// import SearchSchool from './components/SearchSchool.jsx';
+import SearchSchool from './components/SearchSchool.jsx';
 import AddSchoolForm from './components/AddSchool.jsx';
 import SchoolList from './components/SchoolList.jsx';
-// import SchoolMap from './components/SchoolMap.jsx';
+import SchoolMap from './components/SchoolMap.jsx';
 
 function App () {
   const [schools, setSchools] = React.useState([]);
   const [currentList, setCurrentList] = React.useState([]);
 
-  React.useEffect(() => {
+  const fetchSchools = () => {
     axios({
       url: '/schools',
       method: 'get'
@@ -24,18 +24,22 @@ function App () {
       .catch((err) => {
         throw new Error(err, 'Failed to get school list');
       });
+  };
+
+  React.useEffect(() => {
+    fetchSchools();
   }, []);
 
   return (
     <NextUIProvider>
       <NavBar />
       <section className="schoolList">
-        {/* <SearchSchool /> */}
-        <AddSchoolForm />
+        <SearchSchool schools={schools} setCurrentList={setCurrentList}/>
+        <AddSchoolForm fetchSchools={fetchSchools} />
         <SchoolList currentList={currentList}/>
       </section>
-      <section className="map">
-        {/* <SchoolMap /> */}
+      <section>
+        <SchoolMap currentList={currentList}/>
       </section>
     </NextUIProvider>
   );

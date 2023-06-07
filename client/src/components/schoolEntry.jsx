@@ -9,13 +9,13 @@ function SchoolEntry ({school}) {
       <p>{school.name}</p>
       <ul className="tag-list">
         <li>{school.tags}</li>
-        <li><MapPinIcon className="icon-tour" />{location}</li>
+        <li><MapPinIcon className="icon icon-tour" />{location}</li>
         <li>{school.description}</li>
       </ul>
       <ul className="icon-list">
-        <li><HeartIcon className="icon-like" />like</li>
-        <li><UsersIcon className="icon-tour" />tour</li>
-        <li><ChatBubbleBottomCenterTextIcon className="icon-tour" /><a>Reviews</a></li>
+        <li><HeartIcon className="icon icon-like" />like</li>
+        <li><UsersIcon className="icon icon-tour" />tour</li>
+        <li><ChatBubbleBottomCenterTextIcon className="icon icon-tour" /><a>Reviews</a></li>
       </ul>
     </div>
   );

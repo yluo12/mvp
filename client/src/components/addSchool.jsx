@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Modal, Button, Text, Input, Textarea, Dropdown } from '@nextui-org/react';
 
-function AddSchoolForm () {
+function AddSchoolForm ({fetchSchools}) {
   const [visible, setVisible] = React.useState(false);
   const handler = () => setVisible(true);
 
@@ -23,10 +23,12 @@ function AddSchoolForm () {
     })
       .then(() => {
         console.log('school saved to db');
+        fetchSchools();
       })
       .catch((err) => {
         throw new Error(err, 'Failed to save school information');
       });
+      setVisible(false);
   };
 
   return (
@@ -46,13 +48,7 @@ function AddSchoolForm () {
         <Modal.Body>
           <form className="form"
           onSubmit={submitHandler}>
-            <Input
-            clearable
-            underlined
-            required
-            name="name"
-            labelPlaceholder="School Name"
-            />
+            <label>School Name<input name="name" placeholder="School Name" required/></label>
             <label>School Type
               <select name="tags">
                 <option value="opennings Now">Opennings Now</option>
@@ -74,45 +70,12 @@ function AddSchoolForm () {
                 <option value="5">5</option>
               </select>
             </label>
-            <Textarea
-            underlined
-            name="description"
-            labelPlaceholder="School Description"
-            />
-            <Input
-            clearable
-            underlined
-            required
-            name="address"
-            labelPlaceholder="Address"
-            />
-            <Input
-            clearable
-            underlined
-            required
-            name="city"
-            labelPlaceholder="City"
-            />
-            <Input
-            clearable
-            underlined
-            required
-            name="state"
-            labelPlaceholder="State"
-            />
-            <Input
-            clearable
-            underlined
-            required
-            name="zipCode"
-            labelPlaceholder="Zip Code"
-            />
-            <Input
-            clearable
-            underlined
-            name="review"
-            labelPlaceholder="Review"
-            />
+            <label>School Description<textarea name="description" rows="2" required/></label>
+            <label>Address<input name="address" placeholder="Address" required/></label>
+            <label>City<input name="city" placeholder="City" required/></label>
+            <label>State<input name="state" placeholder="State" required/></label>
+            <label>Zip Code<input name="zipCode" placeholder="Zip Code" required/></label>
+            <label>Review<textarea name="review" rows="2" required/></label>
             <Button auto type="submit">
             Save
             </Button>
@@ -134,3 +97,50 @@ export default AddSchoolForm;
                 <Dropdown.Item key="private">private</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown> */}
+
+            // <Input
+            // clearable
+            // underlined
+            // required
+            // name="name"
+            // labelPlaceholder="School Name"
+            // />
+            // <Input
+            // clearable
+            // underlined
+            // required
+            // name="address"
+            // labelPlaceholder="Address"
+            // />
+            // <Input
+            // clearable
+            // underlined
+            // required
+            // name="city"
+            // labelPlaceholder="City"
+            // />
+            // <Input
+            // clearable
+            // underlined
+            // required
+            // name="state"
+            // labelPlaceholder="State"
+            // />
+            // <Input
+            // clearable
+            // underlined
+            // required
+            // name="zipCode"
+            // labelPlaceholder="Zip Code"
+            // />
+            // <Textarea
+            // underlined
+            // name="description"
+            // labelPlaceholder="School Description"
+            // />
+            // <Input
+            // clearable
+            // underlined
+            // name="review"
+            // labelPlaceholder="Review"
+            // />
