@@ -17,7 +17,7 @@ function App () {
       method: 'get'
     })
       .then((res) => {
-        console.log(res.data, 'this is school list from app.jsx');
+        // console.log(res.data, 'this is school list from app.jsx');
         setSchools(res.data);
         setCurrentList(res.data);
       })
@@ -33,14 +33,16 @@ function App () {
   return (
     <NextUIProvider>
       <NavBar />
-      <section className="schoolList">
-        <SearchSchool schools={schools} setCurrentList={setCurrentList}/>
-        <AddSchoolForm fetchSchools={fetchSchools} />
-        <SchoolList currentList={currentList} fetchSchools={fetchSchools}/>
-      </section>
-      <section>
-        <SchoolMap currentList={currentList}/>
-      </section>
+      <div className="container">
+        <section className="schoolList">
+          <SearchSchool schools={schools} setCurrentList=  {setCurrentList}/>
+          <AddSchoolForm fetchSchools={fetchSchools} />
+          <SchoolList currentList={currentList} fetchSchools=  {fetchSchools}/>
+        </section>
+        <section>
+          <SchoolMap currentList={currentList}/>
+        </section>
+      </div>
     </NextUIProvider>
   );
 }

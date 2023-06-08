@@ -39,7 +39,7 @@ const toggleLikefromDB = async (info) => {
   return List.findOneAndUpdate(condition, update, {new: true}).exec();
 };
 
-const toggleTourfromDB = async (info) => {
+const toggleTourfromDB = (info) => {
   const condition = {name: info.name, zipCode: info.zipCode};
   const update = {};
   if (info.tour !== true) {
@@ -50,4 +50,11 @@ const toggleTourfromDB = async (info) => {
   return List.findOneAndUpdate(condition, update, {new: true}).exec();
 };
 
-module.exports = {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, deleteSchoolFromDB, toggleLikefromDB, toggleTourfromDB};
+const addReviewToDB = (info) => {
+  const condition = {name: info.name, zipCode: info.zipCode};
+  const update = {'$push': {'reviews': info.review}};
+
+  return List.findOneAndUpdate(condition, update, {'new': true}).exec();
+};
+
+module.exports = {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, deleteSchoolFromDB, toggleLikefromDB, toggleTourfromDB, addReviewToDB};

@@ -1,4 +1,4 @@
-const {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, deleteSchoolFromDB, toggleLikefromDB, toggleTourfromDB} = require('./models.js');
+const {saveSchoolToDB, getAllSchoolsFromDB, updateSchoolfromDB, deleteSchoolFromDB, toggleLikefromDB, toggleTourfromDB, addReviewToDB} = require('./models.js');
 
 const addSchool = (req, res) => {
   saveSchoolToDB(req.body)
@@ -61,4 +61,16 @@ const updateTour = (req, res) => {
     });
 };
 
-module.exports = {addSchool, getAllSchools, updateSchool, deleteSchool, updateLike, updateTour};
+const addReview = (req, res) => {
+  // console.log(req.body);
+  addReviewToDB(req.body)
+    .then((dbRes) => {
+      // console.log(dbRes);
+      res.status(200).send(dbRes);
+    })
+    .catch((err) => {
+      res.sendStatus(404);
+    });
+};
+
+module.exports = {addSchool, getAllSchools, updateSchool, deleteSchool, updateLike, updateTour, addReview};

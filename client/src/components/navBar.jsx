@@ -3,10 +3,10 @@ import React from 'react';
 function NavBar () {
   return (
     <nav>
-      <div>Navigation Bar</div>
+      <div>logo</div>
       <div>
-        <a className="btn btn-signUp">Sign Up</a>
-        <a className="btn btn-logIn">Log In</a>
+        <button className="btn btn-signUp">Sign Up</button>
+        <button className="btn btn-logIn">Log In</button>
       </div>
     </nav>
   );

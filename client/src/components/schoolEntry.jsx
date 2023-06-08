@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import ReviewModal from './ReviewModal.jsx';
 import { HeartIcon, UsersIcon, MapPinIcon, ChatBubbleBottomCenterTextIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 function SchoolEntry ({school, fetchSchools}) {
@@ -77,7 +78,7 @@ function SchoolEntry ({school, fetchSchools}) {
       <ul className="icon-list">
         <li onClick={likeHandler}><HeartIcon className="icon icon-like" />{like}</li>
         <li onClick={tourHandler}><UsersIcon className="icon icon-tour" />{tour}</li>
-        <li><ChatBubbleBottomCenterTextIcon className="icon icon-review" /><a>Reviews</a></li>
+        <ReviewModal school={school} fetchSchools={fetchSchools}/>
       </ul>
       {showCloseBtn && <XMarkIcon className="icon icon-review" onClick={deleteHandler}/>}
     </div>

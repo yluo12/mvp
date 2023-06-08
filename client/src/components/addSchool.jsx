@@ -8,14 +8,12 @@ function AddSchoolForm ({fetchSchools}) {
 
   const closeHandler = () => {
     setVisible(false);
-    console.log("closed");
   };
 
   const submitHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formJson = Object.fromEntries(formData.entries());
-    // console.log(formJson);
     try {
       const res = await axios({
           url: 'http://nominatim.openstreetmap.org/search',
