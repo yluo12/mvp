@@ -31,32 +31,43 @@ body {
   border: none;
   padding: 8px 24px;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 nav {
   font-size: 2rem;
-  height: 6.5rem;
-  font-weight: 600;
+  height: 8vh;
   border-bottom: 1px solid #e9ecef;
   box-shadow: 0 2.4px 4.8px rgba(0, 0, 0, 0.08);
   align-items: center;
   padding-left: 3.6rem;
   padding-right: 3.6rem;
+  padding-top: 1.2rem;
   display: flex;
   justify-content: space-between;
 }
 nav div {
-  gap: 2.4rem;
+  gap: 3.6rem;
   display: flex;
   justify-content: space-between;
 }
 nav div button {
-  font-weight: 600;
+  font-weight: 800;
+  transition: all 0.4s;
+}
+nav div button:hover {
+  background-color: #eeb403;
 }
 
 .map {
-  height: 100vh;
+  height: 92vh;
   width: 50vw;
+  overflow: hidden;
+}
+
+.schoolList {
+  height: 91vh;
+  margin: 3.6rem 5.6rem 2.4rem 6.4rem;
 }
 
 /*# sourceMappingURL=output.css.map */

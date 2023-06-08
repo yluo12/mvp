@@ -22,7 +22,7 @@ function SearchSchool ({schools, setCurrentList}) {
   }
 
   return (
-    <div>
+    <div className="container-search">
       <input className="search" type="text" placeholder="search" onChange={onChange} />
       <MagnifyingGlassIcon className="icon icon-search" onClick={search} />
     </div>

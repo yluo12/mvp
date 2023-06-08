@@ -1,10 +1,13 @@
 // ************ variables & mixins ************
-$mainAxis-spaceBtwn: space-between;
 $color-primary: #fcc419;
 
 @mixin flex ($alignment) {
   display: flex;
   justify-content: $alignment;
+}
+
+@function mapHeight($a, $b) {
+  @return $a - $b;
 }
 
 // **************** general ********************
@@ -43,6 +46,7 @@ body {
   border: none;
   padding: 8px 24px;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 // **************** sections ********************
@@ -50,30 +54,40 @@ body {
 // ****** navigation bar *****
 nav {
   font-size: 2rem;
-  height: 6.5rem;
-  font-weight: 600;
+  height: 8vh;
   border-bottom: 1px solid #e9ecef;
   box-shadow: 0 2.4px 4.8px rgba(0, 0, 0, 0.08);
   align-items: center;
-  // background-color: hsl(15, 100%, 98%);
   padding-left: 3.6rem;
   padding-right: 3.6rem;
-
+  padding-top: 1.2rem;
   @include flex (space-between);
 
   div {
-    gap: 2.4rem;
+    gap: 3.6rem;
     @include flex (space-between);
 
     button {
-      font-weight: 600;
+      font-weight: 800;
+      transition: all 0.4s;
+
+      &:hover {
+        background-color: darken($color-primary, 7%);
+        // transform: scale(1.2);
+      }
     }
   }
 }
 
 // *********** map ***********
 .map {
-  height: 100vh;
+  height: 92vh;
   width: 50vw;
+  overflow: hidden;
 }
 
+// ****** school list *******
+.schoolList {
+  height: 91vh;
+  margin: 3.6rem 5.6rem 2.4rem 6.4rem;
+}

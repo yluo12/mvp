@@ -35,8 +35,10 @@ function App () {
       <NavBar />
       <div className="container">
         <section className="schoolList">
-          <SearchSchool schools={schools} setCurrentList=  {setCurrentList}/>
-          <AddSchoolForm fetchSchools={fetchSchools} />
+          <div className="container">
+            <SearchSchool schools={schools}   setCurrentList=  {setCurrentList}/>
+            <AddSchoolForm fetchSchools={fetchSchools} />
+          </div>
           <SchoolList currentList={currentList} fetchSchools=  {fetchSchools}/>
         </section>
         <section>
