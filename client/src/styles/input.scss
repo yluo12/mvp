@@ -1,13 +1,24 @@
 // ************ variables & mixins ************
 $color-primary: #fcc419;
+$color-text: #495057;
+$color-shade-hover: #ca9d14;
+$color-grey-border: #807c7b;
+$color-close-light: #6B7278;
+$color-close-dark: #43474b;
 
 @mixin flex ($alignment) {
   display: flex;
   justify-content: $alignment;
 }
 
-@function mapHeight($a, $b) {
-  @return $a - $b;
+@mixin icon-styling {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+@mixin tag-styling {
+  padding: 0 0.8rem;
+  border-radius: 12px;
 }
 
 // **************** general ********************
@@ -27,7 +38,7 @@ body {
   // font-size: 2rem;
   line-height: 1;
   font-weight: 400;
-  color: #555;
+  color: $color-text;
 }
 
 .container {
@@ -36,15 +47,15 @@ body {
 
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .btn {
   background-color: $color-primary;
   color: #fff;
   border: none;
-  padding: 8px 24px;
+  padding: 8px 18px;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -73,7 +84,6 @@ nav {
 
       &:hover {
         background-color: darken($color-primary, 7%);
-        // transform: scale(1.2);
       }
     }
   }
@@ -91,3 +101,125 @@ nav {
   height: 91vh;
   margin: 3.6rem 5.6rem 2.4rem 6.4rem;
 }
+
+// ****** search *******
+.container-search {
+  @include flex(center);
+  align-items: center;
+  gap: 0.8rem;
+
+  input {
+    font-size: 1.8rem;
+    border: none;
+    border-bottom: 2px solid $color-grey-border;
+  }
+
+  .icon-search {
+    @include icon-styling;
+    width: 24px;
+    height: 24px;
+
+    &:hover {
+      stroke: $color-shade-hover;
+      transform: scale(1.05);
+    }
+  }
+}
+
+// ****** add school *******
+.btn-add {
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: darken($color-primary, 7%);
+  }
+}
+
+// ****** school list ******
+.list {
+  margin-top: 1.6rem;
+
+  // ***** school entry *****
+  div {
+    padding: 1.8rem 1.8rem 0.8rem 1.8rem;
+    position: relative;
+
+    &:hover {
+      border-radius: 12px;
+      box-shadow: 0px 0px 12px 2px rgba(151,118,15,0.1);
+    }
+
+    .school-name {
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    ul {
+      align-items: center;
+      gap: 1.6rem;
+      flex-direction: row;
+    }
+
+    .tag-list{
+      @include flex(start);
+      margin-left: 0;
+      .tag-opening {
+        font-size: 1.4rem;
+        text-align: center;
+        background-color: #e7f5ff;
+        @include tag-styling;
+      }
+
+      .tag-location {
+        font-size: 1.4rem;
+        @include flex(center);
+        @include tag-styling;
+        align-items: center;
+        gap: 0.3rem;
+        background-color: #ebfbee;
+      }
+    }
+
+    .school-description {
+      font-size: 1.8rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .icon-list {
+      @include flex(end);
+      margin-right: 0;
+
+      li {
+        font-size: 1.6rem;
+        @include flex(center);
+        align-items: center;
+        gap: 0.3rem;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-shade-hover;
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .icon-close {
+      @include icon-styling;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-50%, 50%);
+      stroke: $color-close-light;
+
+      &:hover {
+        width: 22px;
+        height: 22px;
+        transform: translate(-50%, 50%);
+        stroke: $color-close-dark;
+      }
+    }
+  }
+}
+

@@ -12,7 +12,7 @@ body {
   font-family: "Nunito Sans", sans-serif;
   line-height: 1;
   font-weight: 400;
-  color: #555;
+  color: #495057;
 }
 
 .container {
@@ -21,15 +21,15 @@ body {
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .btn {
   background-color: #fcc419;
   color: #fff;
   border: none;
-  padding: 8px 24px;
+  padding: 8px 18px;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -68,6 +68,116 @@ nav div button:hover {
 .schoolList {
   height: 91vh;
   margin: 3.6rem 5.6rem 2.4rem 6.4rem;
+}
+
+.container-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+.container-search input {
+  font-size: 1.8rem;
+  border: none;
+  border-bottom: 2px solid #807c7b;
+}
+.container-search .icon-search {
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 24px;
+  height: 24px;
+}
+.container-search .icon-search:hover {
+  stroke: #ca9d14;
+  transform: scale(1.05);
+}
+
+.btn-add {
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: all 0.4s;
+}
+.btn-add:hover {
+  background-color: #eeb403;
+}
+
+.list {
+  margin-top: 1.6rem;
+}
+.list div {
+  padding: 1.8rem 1.8rem 0.8rem 1.8rem;
+  position: relative;
+}
+.list div:hover {
+  border-radius: 12px;
+  box-shadow: 0px 0px 12px 2px rgba(151, 118, 15, 0.1);
+}
+.list div .school-name {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.list div ul {
+  align-items: center;
+  gap: 1.6rem;
+  flex-direction: row;
+}
+.list div .tag-list {
+  display: flex;
+  justify-content: start;
+  margin-left: 0;
+}
+.list div .tag-list .tag-opening {
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: #e7f5ff;
+  padding: 0 0.8rem;
+  border-radius: 12px;
+}
+.list div .tag-list .tag-location {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  padding: 0 0.8rem;
+  border-radius: 12px;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: #ebfbee;
+}
+.list div .school-description {
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+}
+.list div .icon-list {
+  display: flex;
+  justify-content: end;
+  margin-right: 0;
+}
+.list div .icon-list li {
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+.list div .icon-list li:hover {
+  color: #ca9d14;
+  transform: scale(1.05);
+}
+.list div .icon-close {
+  cursor: pointer;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-50%, 50%);
+  stroke: #6B7278;
+}
+.list div .icon-close:hover {
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, 50%);
+  stroke: #43474b;
 }
 
 /*# sourceMappingURL=output.css.map */

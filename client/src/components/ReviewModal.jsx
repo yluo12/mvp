@@ -10,9 +10,9 @@ function ReviewModal({school, fetchSchools}) {
   const closeHandler = () => setVisible(false);
 
   return (
-    <li>
+    <li className="container-review">
       <ChatBubbleBottomCenterTextIcon className="icon icon-review" />
-      <a className="btn" onClick={handler}>Reviews</a>
+      <span className="btn-reviews" onClick={handler}>reviews</span>
       <Modal
         closeButton
         aria-labelledby="modal-title"

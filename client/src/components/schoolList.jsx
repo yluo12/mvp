@@ -3,7 +3,7 @@ import SchoolEntry from './SchoolEntry.jsx';
 
 function SchoolList ({currentList, fetchSchools}) {
   return (
-    <div>
+    <div className="list">
       {currentList.map((school) => {
         return <SchoolEntry school={school} key={school._id} fetchSchools={fetchSchools}/>
       })}

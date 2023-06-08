@@ -69,18 +69,18 @@ function SchoolEntry ({school, fetchSchools}) {
 
   return (
     <div onMouseEnter={hoverHandlerShow} onMouseLeave={hoverHandlerNotShow}>
-      <p>{school.name}</p>
+      <p className="school-name">{school.name}</p>
       <ul className="tag-list">
-        <li>{school.tags}</li>
-        <li><MapPinIcon className="icon icon-location" />{location}</li>
+        <li className="tag-opening">{school.tags}</li>
+        <li className="tag-location"><MapPinIcon className="icon icon-location" />{location}</li>
       </ul>
-      <p>{school.description}</p>
+      <p className="school-description">{school.description}</p>
       <ul className="icon-list">
-        <li onClick={likeHandler}><HeartIcon className="icon icon-like" />{like}</li>
+        <li onClick={likeHandler}><HeartIcon className="icon icon-like" style={like === 'like' ? {"fill": "#f03e3e", "stroke": "#f03e3e"} : {}}/>{like}</li>
         <li onClick={tourHandler}><UsersIcon className="icon icon-tour" />{tour}</li>
         <ReviewModal school={school} fetchSchools={fetchSchools}/>
       </ul>
-      {showCloseBtn && <XMarkIcon className="icon icon-review" onClick={deleteHandler}/>}
+      {showCloseBtn && <XMarkIcon className="icon icon-close" onClick={deleteHandler}/>}
     </div>
   );
 }

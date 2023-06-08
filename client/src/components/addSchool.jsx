@@ -40,7 +40,8 @@ function AddSchoolForm ({fetchSchools}) {
 
   return (
     <div>
-      <Button auto shadow onPress={handler}>Add School Here</Button>
+      {/* <Button auto shadow onPress={handler}>Add School Here</Button> */}
+      <button className="btn btn-add" onClick={handler}>Add School Here</button>
       <Modal
         closeButton
         aria-labelledby="modal-title"
