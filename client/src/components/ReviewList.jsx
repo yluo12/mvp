@@ -32,10 +32,7 @@ function ReviewList({school, fetchSchools}) {
 
   return (
     <Modal.Body>
-      <button onClick={showHandler}>Add a new review</button>
-      {school.reviews.map((review) => {
-      return <ReviewEntry review={review} key={review}/>;
-      })}
+      <button className="btn btn-addReview" onClick={showHandler}>Add a new review</button>
       {showAddReview &&
       <form className="form form-review" onSubmit={submitHandler}>
         <Input
@@ -43,11 +40,14 @@ function ReviewList({school, fetchSchools}) {
           underlined
           labelPlaceholder="Review"
           name="newReview"
-          className="input-review"
+          className="input-addReview"
         />
-        <button type="submit">Save</button>
+        <button className="btn btn-saveReview" type="submit">Save</button>
       </form>
       }
+      {school.reviews.map((review) => {
+      return <ReviewEntry review={review} key={review}/>;
+      })}
     </Modal.Body>
   );
 }

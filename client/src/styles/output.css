@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -75,6 +77,7 @@ nav div button:hover {
   justify-content: center;
   align-items: center;
   gap: 0.8rem;
+  margin-left: 1.8rem;
 }
 .container-search input {
   font-size: 1.8rem;
@@ -178,6 +181,115 @@ nav div button:hover {
   height: 22px;
   transform: translate(-50%, 50%);
   stroke: #43474b;
+}
+
+.nextui-c-grJsex-ikUaMfZ-css {
+  max-width: 80rem;
+}
+
+.modal-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.6rem;
+  row-gap: 3.2rem;
+  align-items: center;
+  font-size: 1.8rem;
+  margin: 3rem 3rem 1.5rem 3rem;
+}
+.form input, .form textarea {
+  border: none;
+  border-bottom: 2px solid #868e96;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  width: 225px;
+}
+.form label select {
+  border-radius: 8px;
+}
+.form .input-name {
+  grid-column: 1/-1;
+}
+.form .input-description {
+  grid-column: 1/-1;
+}
+.form .input-description textarea {
+  width: 400px;
+}
+.form .input-address {
+  grid-column: 1/3;
+}
+.form .input-address input {
+  width: 400px;
+}
+.form .input-city input {
+  width: 150px;
+}
+.form .input-state input {
+  width: 100px;
+}
+.form .input-zip {
+  grid-column: 3/4;
+}
+.form .input-zip input {
+  width: 150px;
+}
+.form .input-review {
+  grid-row: 6/7;
+  grid-column: 1/-1;
+}
+.form .input-review textarea {
+  width: 400px;
+}
+.form .btn-addSchool {
+  grid-row: 7/8;
+  grid-column: 1/-1;
+  width: 8rem;
+  justify-self: end;
+  font-weight: 600;
+  margin-bottom: 2.4rem;
+}
+
+.nextui-c-iDzHRq {
+  margin: 2.4rem;
+}
+
+.review-entry {
+  margin: 1.6rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 3rem;
+}
+.review-entry .review-text {
+  font-size: 1.8rem;
+}
+.review-entry .review-img {
+  width: 6.8rem;
+  height: 6.8rem;
+}
+
+.input-addReview {
+  font-size: 1.8rem !important;
+  width: 56rem;
+}
+
+.btn-addReview {
+  font-size: 1.6rem;
+  font-weight: 600;
+  width: 18rem;
+}
+
+.btn-saveReview {
+  font-size: 1.6rem;
+  font-weight: 600;
+  width: 8rem;
 }
 
 /*# sourceMappingURL=output.css.map */
