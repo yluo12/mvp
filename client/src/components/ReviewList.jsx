@@ -35,13 +35,7 @@ function ReviewList({school, fetchSchools}) {
       <button className="btn btn-addReview" onClick={showHandler}>Add a new review</button>
       {showAddReview &&
       <form className="form form-review" onSubmit={submitHandler}>
-        <Input
-          clearable
-          underlined
-          labelPlaceholder="Review"
-          name="newReview"
-          className="input-addReview"
-        />
+        <input className="input-newReview" name="newReview" required/>
         <button className="btn btn-saveReview" type="submit">Save</button>
       </form>
       }
