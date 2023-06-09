@@ -183,6 +183,14 @@ nav {
         gap: 0.3rem;
         background-color: #ebfbee;
       }
+
+      .tag-type {
+        font-size: 1.4rem;
+        text-align: center;
+        background-color: #fff0f6;
+        border-radius: 12px;
+        padding: 0 0.8rem;
+      }
     }
 
     .school-description {
@@ -354,4 +362,17 @@ nav {
   font-size: 1.6rem;
   font-weight: 600;
   width: 8rem;
+}
+
+// ****** school map *******
+.popup {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+
+.icon-school {
+  fill: #74c0fc;
+  width: 48px;
+  height: 48px;
 }

@@ -72,6 +72,7 @@ function SchoolEntry ({school, fetchSchools}) {
       <p className="school-name">{school.name}</p>
       <ul className="tag-list">
         <li className="tag-opening">{school.tags}</li>
+        <li className="tag-type">{school.type}</li>
         <li className="tag-location"><MapPinIcon className="icon icon-location" />{location}</li>
       </ul>
       <p className="school-description">{school.description}</p>

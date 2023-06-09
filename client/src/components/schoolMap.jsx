@@ -3,6 +3,7 @@ import React from 'react';
 import '../styles/output.css';
 import MarkerList from './MarkerList.jsx';
 
+
 function SchoolMap({currentList}) {
   const [currentPosition, setCurrentPosition] = React.useState({lat: 37.3848811, lg: -121.891978});
 
@@ -30,7 +31,7 @@ function SchoolMap({currentList}) {
         url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
       />
       <Marker position={[currentPosition.lat, currentPosition.lg]}>
-        <Popup>Current Location</Popup>
+        <Popup className="popup current-location">Current Location</Popup>
       </Marker>
       <MarkerList currentList={currentList} />
     </MapContainer>

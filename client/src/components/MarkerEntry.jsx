@@ -1,22 +1,23 @@
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import React from 'react';
-import { AcademicCapIcon } from '@heroicons/react/24/outline';
-
+import { HomeModernIcon } from '@heroicons/react/24/outline';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { divIcon } from 'leaflet';
 
 function MarkerEntry ({school}) {
-  const schoolIcon = new L.Icon({
-    iconUrl: AcademicCapIcon,
-    iconRetinaUrl: AcademicCapIcon,
-    popupAnchor:  [-0, -0],
-    iconSize: [25, 25]
+
+  const iconMarkup = renderToStaticMarkup(<HomeModernIcon className="icon icon-school" />);
+  const customMarkerIcon = divIcon({
+    html: iconMarkup,
   });
+
   // console.log([school.coords[0], school.coords[1]]);
   return (
-    <Marker position={school.coords}>
+    <Marker position={school.coords} icon={customMarkerIcon} className="school-marker">
       <Popup>
-        <h5>{school.name}</h5>
-        <p>Easily customizable.</p>
+        <h5 className="popup map-popup">{school.name}</h5>
+        {/* <p>Easily customizable.</p> */}
       </Popup>
     </Marker>);
 }

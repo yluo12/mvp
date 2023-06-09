@@ -146,6 +146,13 @@ nav div button:hover {
   gap: 0.3rem;
   background-color: #ebfbee;
 }
+.list div .tag-list .tag-type {
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: #fff0f6;
+  border-radius: 12px;
+  padding: 0 0.8rem;
+}
 .list div .school-description {
   font-size: 1.8rem;
   margin-bottom: 1.6rem;
@@ -289,6 +296,17 @@ nav div button:hover {
   font-size: 1.6rem;
   font-weight: 600;
   width: 8rem;
+}
+
+.popup {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.icon-school {
+  fill: #74c0fc;
+  width: 48px;
+  height: 48px;
 }
 
 /*# sourceMappingURL=output.css.map */
