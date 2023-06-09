@@ -30,9 +30,7 @@ function SchoolMap({currentList}) {
         url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
       />
       <Marker position={[currentPosition.lat, currentPosition.lg]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
+        <Popup>Current Location</Popup>
       </Marker>
       <MarkerList currentList={currentList} />
     </MapContainer>
