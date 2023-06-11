@@ -46,6 +46,8 @@ function SchoolEntry ({school, fetchSchools}) {
   };
 
   const deleteHandler = (e) => {
+
+    console.log(e.target);
     axios({
       url: '/schools',
       method: 'DELETE',

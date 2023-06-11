@@ -11,7 +11,7 @@ function ReviewList({school, fetchSchools}) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formJson = Object.fromEntries(formData.entries());
-    const inputEl = document.getElementsByClassName('input-review');
+    const inputEl = document.getElementsByClassName('input-newReview');
     inputEl[0].value = '';
     axios({
       url: '/schools/reviews',

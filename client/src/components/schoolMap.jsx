@@ -25,12 +25,12 @@ function SchoolMap({currentList}) {
   }, [currentPosition]);
 
   return (
-    <MapContainer className="map" center={[currentPosition.lat, currentPosition.lg]} zoom={10} scrollWheelZoom={true}>
+    <MapContainer className="map" center={[37.3848811, -121.891978]} zoom={10} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
         url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
       />
-      <Marker position={[currentPosition.lat, currentPosition.lg]}>
+      <Marker position={[37.3848811, -121.891978]}>
         <Popup className="popup current-location">Current Location</Popup>
       </Marker>
       <MarkerList currentList={currentList} />
